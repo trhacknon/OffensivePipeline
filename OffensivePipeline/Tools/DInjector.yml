@@ -1,0 +1,5 @@
+tool:
+  - name: DInjector
+    description: Collection of shellcode injection techniques packed in a D/Invoke weaponized DLL
+    gitLink: https://github.com/snovvcrash/DInjector
+    solutionPath: DInjector\DInjector\DInjector.sln

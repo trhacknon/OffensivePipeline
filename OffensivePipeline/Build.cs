@@ -43,7 +43,7 @@ namespace OffensivePipeline
         {
             string finalPath = string.Empty;
             string text = System.IO.File.ReadAllText(Path.Combine(new string[] { Directory.GetCurrentDirectory(), "Resources", "template_build.bat" }));
-            string buildOptions = "/p:Platform=\"Any CPU\"";
+            string buildOptions = "/p:Platform=\"Any CPU\" /p:AllowUnsafeBlocks=true";
             solutionPath = Path.Combine(new string[] { Directory.GetCurrentDirectory(), "GitTools", solutionPath });
             string outputDir = Path.Combine(new string[] { Directory.GetCurrentDirectory(), "Output" });
             if (File.Exists(solutionPath))
