@@ -30,7 +30,7 @@ namespace OffensivePipeline
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("     Clonnig the repository: {0}", toolName);
                 Console.ResetColor();
-                Repository.Clone(url, toolPath);
+                Repository.Clone(url, toolPath, new CloneOptions() { RecurseSubmodules = true });
                 using (var repo = new Repository(toolPath))
                 {
                     var commit = repo.Head.Tip;
@@ -43,7 +43,7 @@ namespace OffensivePipeline
         {
             string finalPath = string.Empty;
             string text = System.IO.File.ReadAllText(Path.Combine(new string[] { Directory.GetCurrentDirectory(), "Resources", "template_build.bat" }));
-            string buildOptions = "/p:Platform=\"Any CPU\" /p:AllowUnsafeBlocks=true";
+            string buildOptions = "/p:LangVersion=latest /p:Platform=\"Any CPU\" /p:AllowUnsafeBlocks=true";
             solutionPath = Path.Combine(new string[] { Directory.GetCurrentDirectory(), "GitTools", solutionPath });
             string outputDir = Path.Combine(new string[] { Directory.GetCurrentDirectory(), "Output" });
             if (File.Exists(solutionPath))
